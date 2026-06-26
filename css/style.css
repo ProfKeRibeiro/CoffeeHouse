@@ -1,0 +1,166 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    color: #4E342E;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    background: #F8F5F2;
+    border-bottom: 2px solid #E6B566;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 120px;
+}
+
+/* MENU DESKTOP */
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4E342E;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #C58A3B;
+    color: #fff;
+}
+
+/* HAMBURGUER */
+#menu-toggle {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    background: #4E342E;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+/* =========================
+   BANNER (SÓ IMAGEM)
+========================= */
+.banner {
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* =========================
+   TEXTO DO BANNER (AGORA ABAIXO)
+========================= */
+.banner-texto {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.banner-texto h1 {
+    font-size: clamp(20px, 4vw, 42px);
+    color: #4E342E;
+}
+
+/* =========================
+   SAIBA MAIS
+========================= */
+#saiba-mais {
+    padding: 10px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+#saiba-mais h2 {
+    font-size: clamp(22px, 3vw, 36px);
+    margin-bottom: 20px;
+}
+
+#saiba-mais p {
+    font-size: clamp(14px, 2vw, 18px);
+    color: #6D4C41;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+
+    .container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+        background: #4E342E;
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav a {
+        display: block;
+        color: #fff;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav a:hover {
+        background: #C58A3B;
+    }
+
+    #menu-toggle:checked ~ nav {
+        display: block;
+    }
+}
