@@ -1,166 +1,296 @@
 /* =========================
    RESET
 ========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    color: #4E342E;
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.5;
+    color:#4E342E;
+    background:#fff;
 }
 
 /* =========================
    CONTAINER
 ========================= */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:10px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 /* =========================
    HEADER
 ========================= */
-header {
-    background: #F8F5F2;
-    border-bottom: 2px solid #E6B566;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+header{
+    background:#F8F5F2;
+    border-bottom:2px solid #E6B566;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo img {
-    width: 120px;
-}
-
-/* MENU DESKTOP */
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-nav a {
-    text-decoration: none;
-    color: #4E342E;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    background: #C58A3B;
-    color: #fff;
-}
-
-/* HAMBURGUER */
-#menu-toggle {
-    display: none;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    background: #4E342E;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
+.logo img{
+    width:120px;
+    display:block;
 }
 
 /* =========================
-   BANNER (SÓ IMAGEM)
+   MENU MOBILE
 ========================= */
-.banner {
-    width: 100%;
+
+#menu-toggle{
+    display:none;
 }
 
-.banner img {
-    width: 100%;
-    height: auto;
-    display: block;
+/* Botão */
+
+.menu-toggle{
+    width:42px;
+    height:34px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    position:relative;
+}
+
+/* Três linhas */
+
+.menu-toggle span,
+.menu-toggle::before,
+.menu-toggle::after{
+
+    content:"";
+    position:absolute;
+
+    width:30px;
+    height:3px;
+
+    background:#4E342E;
+
+    border-radius:3px;
+
+    transition:0.35s ease;
+}
+
+.menu-toggle span{
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.menu-toggle::before{
+    top:8px;
+}
+
+.menu-toggle::after{
+    bottom:8px;
+}
+
+/* Animação para X */
+
+#menu-toggle:checked + .menu-toggle span{
+    opacity:0;
+}
+
+#menu-toggle:checked + .menu-toggle::before{
+    top:50%;
+    transform:translateY(-50%) rotate(45deg);
+}
+
+#menu-toggle:checked + .menu-toggle::after{
+    bottom:auto;
+    top:50%;
+    transform:translateY(-50%) rotate(-45deg);
 }
 
 /* =========================
-   TEXTO DO BANNER (AGORA ABAIXO)
+   NAVEGAÇÃO
 ========================= */
-.banner-texto {
-    text-align: center;
-    padding: 10px 20px;
+
+nav{
+    width:100%;
+    display:none;
+    margin-top:10px;
+    background:#4E342E;
 }
 
-.banner-texto h1 {
-    font-size: clamp(20px, 4vw, 42px);
-    color: #4E342E;
+#menu-toggle:checked ~ nav{
+    display:block;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+}
+
+nav a{
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    transition:.3s;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+nav a:hover{
+    background:#C58A3B;
+}
+
+nav a:focus{
+    outline:3px solid #E6B566;
+    outline-offset:3px;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner img{
+    width:100%;
+    max-width:100%;
+    display:block;
+    height:auto;
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.banner-texto{
+    text-align:center;
+    padding:20px;
+}
+
+.banner-texto h1{
+    font-size:clamp(24px,6vw,42px);
+    color:#4E342E;
 }
 
 /* =========================
    SAIBA MAIS
 ========================= */
-#saiba-mais {
-    padding: 10px 20px;
-    text-align: center;
-    max-width: 900px;
-    margin: auto;
+
+#saiba-mais{
+
+    max-width:900px;
+    margin:auto;
+
+    padding:40px 20px;
+
+    text-align:center;
 }
 
-#saiba-mais h2 {
-    font-size: clamp(22px, 3vw, 36px);
-    margin-bottom: 20px;
+#saiba-mais h2{
+
+    font-size:clamp(24px,5vw,36px);
+
+    margin-bottom:20px;
 }
 
-#saiba-mais p {
-    font-size: clamp(14px, 2vw, 18px);
-    color: #6D4C41;
+#saiba-mais p{
+
+    font-size:clamp(15px,3vw,18px);
+
+    color:#6D4C41;
 }
 
 /* =========================
-   RESPONSIVO
+   FOOTER
 ========================= */
-@media (max-width: 768px) {
 
-    .container {
-        flex-wrap: wrap;
-        gap: 10px;
+footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:#4E342E;
+
+    color:white;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:768px){
+
+    .container{
+
+        flex-wrap:nowrap;
+
+        padding:0 20px;
     }
 
-    .menu-toggle {
-        display: block;
+    /* Esconde o botão */
+
+    .menu-toggle{
+        display:none;
     }
 
-    nav {
-        width: 100%;
-        display: none;
-        background: #4E342E;
-        margin-top: 10px;
+    /* Menu sempre aberto */
+
+    nav{
+
+        display:block !important;
+
+        width:auto;
+
+        margin-top:0;
+
+        background:transparent;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 0;
+    nav ul{
+
+        flex-direction:row;
+
+        gap:30px;
     }
 
-    nav a {
-        display: block;
-        color: #fff;
-        padding: 15px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+    nav a{
+
+        color:#4E342E;
+
+        border:none;
+
+        border-radius:6px;
+
+        padding:10px 15px;
+
+        font-weight:600;
     }
 
-    nav a:hover {
-        background: #C58A3B;
+    nav a:hover{
+
+        background:#C58A3B;
+
+        color:white;
     }
 
-    #menu-toggle:checked ~ nav {
-        display: block;
+    .banner-texto{
+
+        padding:30px;
+    }
+
+    #saiba-mais{
+
+        padding:60px 20px;
     }
 }
